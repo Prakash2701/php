@@ -119,10 +119,6 @@
         }
     }
 
-    .pricing-img {
-        margin-bottom: 25px;
-        max-width: 100%;
-    }
 
     .pricing-header {
         color: #888;
@@ -180,6 +176,12 @@
     .pricing-button.is-featured:active {
         background-color: #269aff;
     }
+
+    .Search {
+        text-align: left;
+        right: 10px;
+
+    }
     </style>
 </head>
 
@@ -197,6 +199,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+
+                <form class="d-flex">
+                    <input class="form-control me-2 Search" type="text" placeholder="Search">
+                    <button class="btn btn-primary " type="button">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
 
     <div class="background">
         <div class="container">
@@ -226,7 +243,7 @@
                           
                           
                               if ($result->num_rows > 0) {
-                                echo "<tbody><table class='table'><thead><tr><th scope='col'>Id</th><th scope='col'>Playername</th><th scope='col'>Townhall</th><th scope='col'>warstar</th><th scope='col'>attack</th><th scope='col'>attacktime</th><th scope='col'>Operation</th></tr></sthead>";
+                                echo "<tbody><table class='table table-hover'><thead><tr><th scope='col'>Id</th><th scope='col'>Playername</th><th scope='col'>Townhall</th><th scope='col'>warstar</th><th scope='col'>attack</th><th scope='col'>attacktime</th><th scope='col'>Operation</th></tr></sthead>";
                                 // output data of each row
                                 while ($row = $result->fetch_assoc()) {
                                   echo "<tr><th scope='row'>$row[id]</th>
@@ -235,7 +252,7 @@
                                  <td>$row[warstar]</td>
                                  <td>$row[attack]</td>
                                  <td>$row[attacktime]</td>
-                                 <td class='O' ><li><a href='.\\updata3.php?id=$row[id]'> <button type='button'class='Operation btn btn-outline-primary btn-sm'>updata</button> </a></li><a href='.\\delete2.php?id=$row[id]'> <button type='button'class='Operation btn btn-outline-primary btn-sm'>Deleta</button> </a><li></td>
+                                 <td class='O' ><li><a href='.\\update3.php?id=$row[id]'> <button type='button'class='Operation btn btn-outline-primary btn-sm'>update</button> </a></li><a href='.\\delete2.php?id=$row[id]'> <button type='button'class='Operation btn btn-outline-primary btn-sm'>Deleta</button> </a><li></td>
                                  </tr> ";
                                 }
                                 echo "</table></tbody>";

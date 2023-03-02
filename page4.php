@@ -1,3 +1,7 @@
+<?php
+
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +14,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Clan War</title>
-    <h1 style="text-align:center">Clans War</h1>
+    <h1 style="text-align:center; margin-bottom: 2%;">Clans War</h1>
     <style>
     .input {
         width: 90%;
@@ -66,12 +70,34 @@
         font-size: 150%;
         border: 1px rgb(135, 133, 133) solid;
     }
+
+    nav {
+        margin-bottom: 3%;
+    }
     </style>
 </head>
 
 <body style="background-color:rgb(228, 221, 221) ;">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href=".//Clash of Clans tournaments test.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="div1">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <table align="center">
                 <tr>
                     <td><label>Day :</label></td>
