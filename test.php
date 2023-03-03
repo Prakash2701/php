@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <title>Bootstrap Simple Login Form with Blue Background</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -19,9 +22,10 @@
 
     .form-control {
         height: 41px;
-        background: #f2f2f2;
+        background: #e1dddd;
         box-shadow: none !important;
         border: none;
+        width: 230px;
     }
 
     .form-control:focus {
@@ -113,6 +117,60 @@
 </head>
 
 <body>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "signup";
+       
+        $con =  mysqli_connect($servername,$username,$password,$dbname);
+        if ($con->connect_error) {
+           die("Connection failed: " . $con->connect_error);
+         } else {
+         
+         }
+          
+        
+         if(isset($_POST['submit'])){
+            $name = mysqli_real_escape_string($con, $_POST['name']);
+            $email = mysqli_real_escape_string($con, $_POST['email']);
+            $phone =$_POST['phone'];
+            $password = mysqli_real_escape_string($con, $_POST['password']);
+            $confirm_password = mysqli_real_escape_string($con, $_POST['confirm_password']);
+           
+            $pass = password_hash($password,PASSWORD_BCRYPT);
+            $cpass = password_hash($confirm_password,PASSWORD_BCRYPT);
+
+            $emailq = "SELECT * FROM signup WHERE email = '$email' ";
+            $q = mysqli_query($con,$emailq);
+
+            $emailcount = mysqli_num_rows($q);
+            if ($emailcount>0) {
+                 ?>
+    <script>
+    alert("email already exists");
+    </script>
+
+    <?php
+                
+            }else {
+                if ($password === $confirm_password) {
+                   $insertq =" INSERT INTO signup( username, email, phone, `password`, confirm_password) VALUES ('$name','$email','$phone','$pass','$cpass')";
+                   $iq = mysqli_query($con,$insertq); 
+                   header('location:Clash of Clans tournaments test.html');
+                }else {
+                    ?>
+    <script>
+    alert("Password are not matching");
+    </script>
+
+    <?php
+                }
+            }
+
+           
+         }
+    ?>
     <div class="signup-form">
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <h2>Sign Up</h2>
@@ -128,7 +186,7 @@
                 <input type="email" class="form-control" name="email" placeholder="Email" required="required">
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" name="phonenumber" placeholder="phone" required="required">
+                <input type="phone" class="form-control" name="phone" placeholder="phone" required="required">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Password" required="required">
@@ -145,7 +203,7 @@
                 <button type="submit" name="submit" class="btn btn-primary btn-lg">Sign Up</button>
             </div>
         </form>
-        <div class="hint-text">Already have an account? <a href="#">Login here</a></div>
+        <div class="hint-text">Already have an account? <a href=".//test2.php">Login here</a></div>
     </div>
 </body>
 
