@@ -252,7 +252,7 @@
                                  <td>$row[warstar]</td>
                                  <td>$row[attack]</td>
                                  <td>$row[attacktime]</td>
-                                 <td class='O' ><li><a href='.\\update3.php?id=$row[id]'> <button type='button'class='Operation btn btn-outline-primary btn-sm'>update</button> </a></li><a href='.\\delete2.php?id=$row[id]'> <button type='button'class='Operation btn btn-outline-primary btn-sm'>Deleta</button> </a><li></td>
+                                 <td class='O' ><li><a href='.\\update3.php?id=$row[id]'> <button type='button'class='Operation btn btn-outline-primary btn-sm'>update</button> </a></li><a href='.\\delete2.php?id=$row[id]'> <button type='button'class='Operation btn btn-outline-primary btn-sm'>Delete</button> </a><li></td>
                                  </tr> ";
                                 }
                                 echo "</table></tbody>";
