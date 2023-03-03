@@ -160,3 +160,11 @@ html {
 .pricing-button.is-featured:active {
     background-color: #269aff;
 }
+
+.form-control {
+    height: 41px;
+    background: #e1dddd;
+    box-shadow: none !important;
+    border: none;
+    width: 230px;
+}
