@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -217,8 +221,8 @@
                               if ($conn->connect_error) {
                                 die("Connection failed: " . $conn->connect_error);
                               }
-                          
-                              $sql = "SELECT * FROM   page4 ";
+                              $user = $_SESSION['username'];
+                              $sql = "SELECT * FROM   $user ";
                           
                               $result = $conn->query($sql);
                           

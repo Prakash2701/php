@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +26,7 @@
         background: #e1dddd;
         box-shadow: none !important;
         border: none;
-        width: 230px;
+
     }
 
     .form-control:focus {
@@ -114,8 +118,51 @@
 </head>
 
 <body>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "signup";
+       
+        $con =  mysqli_connect($servername,$username,$password,$dbname);
+        if ($con->connect_error) {
+           die("Connection failed: " . $con->connect_error);
+         } else {
+         
+         }
+          
+        
+         if(isset($_POST['submit'])){
+           $email = $_POST['email'];
+           $password = $_POST['password'];
+
+           $email_q = "SELECT * FROM signup WHERE email = '$email' ";
+           $q = mysqli_query($con,$email_q);
+           $email_c = mysqli_num_rows($q);
+           if ($email_c) {
+               $email_pass = mysqli_fetch_assoc($q);
+               $pass = $email_pass['password'];
+               $_SESSION['username'] = $email_pass['username'];
+               $pass_decode = password_verify($password,$pass);
+               if ($pass_decode) {
+                
+                 ?>
+    <script>
+    alert("login successful");
+    </script>
+    <?php
+             header('location:Clash of Clans tournaments 1.php');
+               }else {
+                echo "password incorrect";
+               }
+           }else {
+              echo " invalid email";
+           }
+
+         }
+?>
     <div class="signup-form">
-        <form action="/examples/actions/confirmation.php" method="post">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <h2>Login</h2>
             <p>Please fill in this form to create an account!</p>
             <hr>
@@ -123,9 +170,7 @@
             <div class="form-group">
                 <input type="email" class="form-control" name="email" placeholder="Email" required="required">
             </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="phonenumber" placeholder="phone" required="required">
-            </div>
+
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Password" required="required">
             </div>
@@ -135,7 +180,7 @@
                         href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                <button type="submit" name="submit" class="btn btn-primary btn-lg">Login</button>
             </div>
         </form>
         <div class="hint-text">Create account? <a href=".//test.php">SignUp here</a></div>

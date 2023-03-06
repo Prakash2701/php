@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -93,21 +97,22 @@
                
              
               $id = $_GET['id'];
+              $user = $_SESSION['username'];
 
-              $sql = "SELECT * FROM   page4  where id=$id";
+              $sql = "SELECT * FROM   $user  where id=$id";
     
               $q = mysqli_query($con,$sql);
 
               $r = mysqli_fetch_assoc($q);
               if (isset($_POST['page4'])) {
-               $up =" UPDATE `page4` SET `day`='$_POST[day]',`clanname`='$_POST[clanname]',`playername`='$_POST[playername]',`townhall`='$_POST[townhall]',`warstar`='$_POST[warstar]',`attack`='$_POST[attack]',`attacktime`='$_POST[attacktime]' WHERE id =$id";
+               $up =" UPDATE `$user` SET `day`='$_POST[day]',`clanname`='$_POST[clanname]',`playername`='$_POST[playername]',`townhall`='$_POST[townhall]',`warstar`='$_POST[warstar]',`attack`='$_POST[attack]',`attacktime`='$_POST[attacktime]' WHERE id =$id";
               
                $q = mysqli_query($con,$up);
                header('location:page4.php');
             
             }
 
-                 
+            $con->close();      
               
     ?>
             <table align="center">

@@ -1,10 +1,15 @@
 <?php
+session_start();
+?>
+
+<?php
  $servername = "localhost";
  $username = "root";
  $password = "";
  $dbname = "clanswar";
  
  $id = $_GET['id'];
+ $user = $_SESSION['username'];
   // Create connection
   $con = mysqli_connect($servername,$username,$password,$dbname);
  // Check connection
@@ -12,14 +17,14 @@
    die("Connection failed: " . $conn->connect_error);
  }
 
- $sql = "DELETE FROM page4 WHERE id =$id";
+ $sql = "DELETE FROM $user WHERE id =$id";
  $q = mysqli_query($con,$sql);
    if ($q) {
   ?>
-      <script>
-                    alert("deleted");
-        </script>    
- <?php   
+<script>
+alert("deleted");
+</script>
+<?php   
 
     header('location:getdata2.php');
  }

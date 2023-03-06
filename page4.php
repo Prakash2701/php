@@ -12,69 +12,10 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href=".//inputform.css">
     <title>Clan War</title>
-    <h1 style="text-align:center; margin-bottom: 2%;">Clans War</h1>
-    <style>
-    .input {
-        width: 90%;
-        padding: 8px 12px;
-        display: inline-block;
-        border: 2px solid green;
-        box-sizing: border-box;
-    }
 
-    label {
-        color: rgb(28, 15, 15);
-        text-shadow: #44096e;
-        font-size: 150%;
-    }
 
-    .div1 {
-        width: 100%;
-        height: 60%;
-    }
-
-    .div2 {
-        height: 20%;
-        min-height: 35%;
-        text-align: center;
-        margin-top: 10%;
-    }
-
-    .div3 {
-        height: 20%;
-        min-height: 35%;
-        text-align: center;
-        margin-top: 3%;
-    }
-
-    .t {
-        margin-top: 2%;
-        border: 1px rgb(213, 192, 192) solid;
-        padding: 8px;
-        text-align: center;
-    }
-
-    .y {
-        margin-top: 2%;
-        border: 1px rgb(134, 131, 131) solid;
-        padding: 8px;
-        text-align: center;
-    }
-
-    th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        font-size: 150%;
-        border: 1px rgb(135, 133, 133) solid;
-    }
-
-    nav {
-        margin-bottom: 3%;
-    }
-    </style>
 </head>
 
 <body style="background-color:rgb(228, 221, 221) ;">
@@ -82,7 +23,7 @@ session_start();
         <div class="container-fluid">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href=".//Clash of Clans tournaments test.html">Home</a>
+                    <a class="nav-link active" href=".//Clash of Clans tournaments 1.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -96,53 +37,64 @@ session_start();
             </ul>
         </div>
     </nav>
-    <div class="div1">
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-            <table align="center">
-                <tr>
-                    <td><label>Day :</label></td>
-                    <td><input type="number" name="day" class="input"></td>
-                </tr>
-                <tr>
-                    <td><label>Clan name or number :</label></td>
-                    <td><input type="text" name="clanname" class="input"></td>
-                </tr>
-                <tr>
-                    <td><label>player number or name :</label></td>
-                    <td><input type="text" name="playername" class="input"></td>
-                </tr>
-                <tr>
-                    <td><label>Town Hall (Level) :</label></td>
-                    <td><input type="number" name="townhall" class="input"></td>
-                </tr>
-                <tr>
-                    <td><label>War stars :</label> </td>
-                    <td> <input type="number" name="warstar" class="input"></td>
 
-                </tr>
-                <tr>
-                    <td><label>Attack percentage :</label></td>
-                    <td><input type="number" name="attack" class="input"></td>
-                </tr>
-                <tr>
-                    <td><label>Attack time : </label></td>
-                    <td><input type="number" name="attacktime" class="input"></td>
-                </tr>
-                <tr>
+    <div class="background">
+        <h2>Clans War</h2>
+        <div class="container">
+
+            <div class="panel pricing-table">
+
+                <div class="container">
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                        <table align="center">
+                            <tr>
+                                <td><label>Day :</label></td>
+                                <td><input type="number" name="day" class="input" required></td>
+                            </tr>
+                            <tr>
+                                <td><label>Clan name or number :</label></td>
+                                <td><input type="text" name="clanname" class="input" required></td>
+                            </tr>
+                            <tr>
+                                <td><label>player number or name :</label></td>
+                                <td><input type="text" name="playername" class="input" required></td>
+                            </tr>
+                            <tr>
+                                <td><label>Town Hall (Level) :</label></td>
+                                <td><input type="number" name="townhall" class="input" required></td>
+                            </tr>
+                            <tr>
+                                <td><label>War stars :</label> </td>
+                                <td> <input type="number" name="warstar" class="input" required></td>
+
+                            </tr>
+                            <tr>
+                                <td><label>Attack percentage :</label></td>
+                                <td><input type="number" name="attack" class="input" required></td>
+                            </tr>
+                            <tr>
+                                <td><label>Attack time : </label></td>
+                                <td><input type="number" name="attacktime" class="input" required></td>
+                            </tr>
+                            <tr>
 
 
-                    <td><a href=".\\getdata2.php">
-                            <button type="button" class="inputcss btn btn-secondary btn-sm">data</button>
-                        </a>
-                    </td>
-                    <td><input type="submit" class="inputcss btn btn-primary btn-sm" name="page4" value="submit"></td>
-                </tr>
-            </table>
-        </form>
+                                <td><a href=".\\getdata2.php">
+                                        <button type="button" class="inputcss btn btn-secondary btn-sm">data</button>
+                                    </a>
+                                </td>
+                                <td><input type="submit" class="inputcss btn btn-primary btn-sm" name="page4"
+                                        value="submit"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 
-    <script>
+
     <?php
              $servername = "localhost";
              $username = "root";
@@ -156,14 +108,16 @@ session_start();
               
               }
                
-             
+              $user = $_SESSION['username'];
+              
               if(isset($_POST['page4'])){
-                $sql = "INSERT INTO `page4` (`id`, `day`, `clanname`, `playername`, `townhall`, `warstar`, `attack`, `attacktime`) VALUES (NULL, '$_POST[day]', '$_POST[clanname]', '$_POST[playername]', '$_POST[townhall]', '$_POST[warstar]', '$_POST[attack]', '$_POST[attacktime]') ";
+                $sql = "INSERT INTO `$user` (`id`, `day`, `clanname`, `playername`, `townhall`, `warstar`, `attack`, `attacktime`) VALUES (NULL, '$_POST[day]', '$_POST[clanname]', '$_POST[playername]', '$_POST[townhall]', '$_POST[warstar]', '$_POST[attack]', '$_POST[attacktime]') ";
                  $r = mysqli_query($con, $sql);
 
                  
               }
-    ?>
+              $con->close();
+      ?>
 
 </body>
 

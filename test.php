@@ -25,7 +25,7 @@
         background: #e1dddd;
         box-shadow: none !important;
         border: none;
-        width: 230px;
+
     }
 
     .form-control:focus {
@@ -156,9 +156,25 @@
             }else {
                 if ($password === $confirm_password) {
                    $insertq =" INSERT INTO signup( username, email, phone, `password`, confirm_password) VALUES ('$name','$email','$phone','$pass','$cpass')";
-                   $iq = mysqli_query($con,$insertq); 
-                   header('location:Clash of Clans tournaments test.html');
-                }else {
+                   $iq = mysqli_query($con,$insertq);
+                   if ($iq) {
+                    $email = $_POST['email'];
+          
+                        $email_q = "SELECT * FROM signup WHERE email = '$email' ";
+                        $q = mysqli_query($con,$email_q);
+                        $email_c = mysqli_num_rows($q);
+                        if ($email_c) {
+                            $email_pass = mysqli_fetch_assoc($q);
+                           
+                            $_SESSION['username'] = $email_pass['username'];
+                            
+                            if ($_SESSION['username']) {
+                                header('location:create_table.php'); 
+                            }
+                        }
+                    }        
+                                
+            }else {
                     ?>
     <script>
     alert("Password are not matching");

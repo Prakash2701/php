@@ -14,18 +14,17 @@
 
     <script>
         function vs1() {
-            alert("join")
-            '<a href=".\\pega2.html">join</a>'
+            alert(" Please login  using");
 
 
         }
 
         function vs2() {
-            alert("join")
+            alert(" Please login  using");
         }
 
         function vs3() {
-            alert("join")
+            alert(" Please login  using");
         }
     </script>
 </head>
@@ -62,7 +61,9 @@
         height: 50%;
         box-sizing: border-box;
         border-radius: 20px;
-        background-color: rgb(164, 164, 241);
+        color: #fff;
+        background: #3598dc;
+        font-family: 'Roboto', sans-serif;
         transition-duration: 0.4s;
     }
     
@@ -135,6 +136,22 @@
         border-radius: 50px;
         border: 2px solid white;
     }
+    
+    .text {
+        clear: left;
+        margin-top: 50%;
+        margin-left: 5%;
+        position: relative;
+    }
+    
+    .text div {
+        position: absolute;
+    }
+    
+    .fex {
+        position: fixed;
+        top: 0;
+    }
 </style>
 </head>
 
@@ -146,7 +163,7 @@
 
 
 
-    <nav class="navbar navbar-inverse" style="position:sticky; top: 0;cursor: pointer; z-index: 1;">
+    <nav class="navbar navbar-inverse " style="position:sticky; top: 0;cursor: pointer; z-index: 1;">
         <div class="container-fluid">
             <div class="navbar-header">
                 <img class="img" src=".\\images47.jpg" width="70">
@@ -219,8 +236,8 @@
                 <img src=".\\1vs1.jpg" class="img-rounded" width="300" height="225"><br>
                 <p class="p1">1VS1</p><br>
                 <p id="pemo2" class="p2"></p>
-                <a href=".\\page2.html">
-                    <button class="button1" onclick="vs1()">Join</button></a>
+
+                <button class="button1" onclick="vs1()">Join</button>
 
 
             </div>
@@ -228,17 +245,17 @@
                 <img src=".\\img3.jpg" class="img-rounded" height="225" width="300"><br>
                 <p class="p1">clansVSclans</p><br>
                 <p id="pemo1" class="p2"></p>
-                <a href=".\\page3.php">
-                    <button class="button1" onclick="vs2()">Join</button>
-                </a>
+
+                <button class="button1" onclick="vs2()">Join</button>
+
             </div>
             <div class="div1">
                 <img src=".\\img2.jpg" class="img-rounded" height="225" width="300"><br>
                 <p class="p1">7 clansVSclans</p><br>
                 <p id="pemo" class="p2"></p>
-                <a href=".\\page4.php">
-                    <button class="button1" onclick="vs3()">Join</button>
-                </a>
+
+                <button class="button1" onclick="vs3()">Join</button>
+
             </div>
 
 
@@ -248,37 +265,40 @@
 
 
 
-    <div style=" padding-top: 70%; margin-left: 5%; position :values static relative absolute fixed sticky">
-        <h3>Clash of Clans</h3>
-        <p>
-            An epic strategy game where you collect resources to build a village and forge an army. The world of Clash will awe you with its<br> mesmerizing towns and unique characters. From scary barbarians to wacky wizards, there is something new to
-            unlock and discover<br> every time you step in to form a clan or build resources to create your town. Go ahead, develop your strategy like a pro and conquer the enemies.
-        </p> <br>
-        <h3>CLASH OF CLANS WORLD CHAMPIONSHIP</h3>
+    <div class="text">
+        <div class="text2">
+            <h3>Clash of Clans </h3>
+            <p>
+                An epic strategy game where you collect resources to build a village and forge an army. The world of Clash will awe you with its<br> mesmerizing towns and unique characters. From scary barbarians to wacky wizards, there is something new
+                to unlock and discover<br> every time you step in to form a clan or build resources to create your town. Go ahead, develop your strategy like a pro and conquer the enemies.
+            </p> <br>
+            <h3>CLASH OF CLANS WORLD CHAMPIONSHIP</h3>
 
-        <p>
-            The Clash of Clans World Championships is Supercell’s official esports program, featuring the best<br>Clash of Clans players and teams out there. The World Championships aims to give players, teams<br> and spectators the most exciting and
-            entertaining competition in the world.
-        </p>
-        <img src=".\\coc.jpg" height="500" width="800" style="border-radius: 20px;"><br>
-        <br>
-
-
-        <p>Since 2019 the program has established itself as the highest form of competitive Clash out there.<br> 2023 will keep being true to the foundation we’ve set with our community, and Clash is here to<br> give YOU another year of great gameplay featuring
-            Town Hall 15 and a total prize pool of 1 150 000 million USD!
-        </p><br>
-
-        <h3>THE CLASH OF CLANS WORLD CHAMPIONSHIPS</h3><br>
-        <p>If you’re familiar with the competitive scene already and a veteran then the World Championships<br> is where you want to play! 2023 is back with a new and better year of the best gameplay you can<br> imagine. Let us break down all your options
-            in how you can secure some of that $1.150.000 prize<br> pool for your team, and how you can find yourself battling for the Championship title at World Finals!
+            <p>
+                The Clash of Clans World Championships is Supercell’s official esports program, featuring the best
+                <br>Clash of Clans players and teams out there. The World Championships aims to give players, teams<br> and spectators the most exciting and entertaining competition in the world.
+            </p>
+            <img src=".\\coc.jpg" height="500" width="800" style="border-radius: 20px;"><br>
+            <br>
 
 
-        </p>
+            <p>Since 2019 the program has established itself as the highest form of competitive Clash out there.<br> 2023 will keep being true to the foundation we’ve set with our community, and Clash is here to<br> give YOU another year of great gameplay
+                featuring Town Hall 15 and a total prize pool of 1 150 000 million USD!
+            </p><br>
 
-    </div>
-    <div class="ba">
-        <p class="p3">Create by </p>
-        <p class="bg-text">Prakash chaudhary</p>
+            <h3>THE CLASH OF CLANS WORLD CHAMPIONSHIPS</h3><br>
+            <p>If you’re familiar with the competitive scene already and a veteran then the World Championships<br> is where you want to play! 2023 is back with a new and better year of the best gameplay you can<br> imagine. Let us break down all your options
+                in how you can secure some of that $1.150.000 prize<br> pool for your team, and how you can find yourself battling for the Championship title at World Finals!
+
+
+            </p>
+            <div class="ba">
+                <p class="p3">Create by </p>
+                <p class="bg-text">Prakash chaudhary</p>
+
+            </div>
+
+        </div>
     </div>
 
     <script>

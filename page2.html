@@ -4,70 +4,56 @@
 <head>
     <title style="color:chartreuse;">Clash of Clans toutnaments</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".//inputform.css">
     <h1 style="text-align: center;">War</h1>
 
-    <style>
-        input {
-            width: 90%;
-            padding: 8px 12px;
-            display: inline-block;
-            border: 2px solid green;
-            box-sizing: border-box;
-        }
-        
-        .div1 {
-            height: 60%;
-            margin-top: 2%;
-            color: rgb(24, 18, 18);
-            text-shadow: #44096e;
-            font-size: 150%;
-            width: 100%;
-        }
-    </style>
+
 </head>
 
-<body style="background-color:rgb(228, 221, 221) ;">
-    <div style="height: 40%;">
-        <form>
-            <div>
-                <div class="div1">
-                    <table align="center">
-                        <tr>
+<body class="background">
+    <div class="container">
+        <div class="panel pricing-table">
+            <div class="container">
+                <form>
+                    <div>
+                        <div class="div1">
+                            <table align="center">
+                                <tr>
 
-                            <td> <label>Star Point  : </label> </td>
-                            <td><input type="number" id="input1" placeholder="star" name="quantity" min="1" max="3" required></td>
+                                    <td> <label>Star Point  : </label> </td>
+                                    <td><input type="number" id="input1" placeholder="star" name="quantity" min="1" max="3" required></td>
 
-                        </tr>
+                                </tr>
 
-                        <tr>
+                                <tr>
 
-                            <td><label>Attack percentage :</label> </td>
-                            <td><input type="number" placeholder="Enter Attack percentage" id="input2"></td>
+                                    <td><label>Attack percentage :</label> </td>
+                                    <td><input type="number" placeholder="Enter Attack percentage" id="input2"></td>
 
-                        </tr>
+                                </tr>
 
-                        <tr>
+                                <tr>
 
-                            <td><label>time :</label></td>
-                            <td><input type="number" placeholder="time" id="input3"></td>
+                                    <td><label>time :</label></td>
+                                    <td><input type="number" placeholder="time" id="input3"></td>
 
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td> <button type="button" onclick="war()">Submit</button></td>
-                        </tr>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td> <button type="button" onclick="war()">Submit</button></td>
+                                </tr>
 
-                    </table>
+                            </table>
 
-                </div>
+                        </div>
 
 
 
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
     <div style=" height:40% ; min-height: 35%; text-align: center;margin-top: 10%">
         <img id="star" height="30" src="">
