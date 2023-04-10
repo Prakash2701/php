@@ -14,6 +14,7 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+
     <title>getdata</title>
     <style>
     .Operation {
@@ -216,7 +217,7 @@ session_start();
                               $servername = "localhost";
                               $username = "root";
                               $password = "";
-                              $dbname = "clanswar";
+                              $dbname = "clash_of _lans_toutnaments";
                           
                               // Create connection
                               $conn = new mysqli($servername, $username, $password, $dbname);
@@ -224,8 +225,15 @@ session_start();
                               if ($conn->connect_error) {
                                 die("Connection failed: " . $conn->connect_error);
                               }
-                              $user = $_SESSION['username'];
-                              $sql = "SELECT * FROM   `$user` ";
+                                
+                                $name =$_SESSION['username'];
+                                $id ="SELECT * FROM signup WHERE username = '$name' ";
+                                $q = mysqli_query($conn,$id);
+                                $Name_ = mysqli_fetch_assoc($q);
+                                $Signup_id = $Name_['signup_id'];
+
+                             
+                              $sql = "SELECT * FROM   `user_records`WHERE `user_id` ='$Signup_id' ";
                           
                               $result = $conn->query($sql);
                           
@@ -235,6 +243,7 @@ session_start();
                                 // output data of each row
                                 while ($row = $result->fetch_assoc()) {
                                   echo "<tr><th scope='row'>$row[id]</th>
+                                  
                                   <td>  $row[day]</td>
                                   <td> $row[clanname] </td>
                                  <td> $row[playername]</td>

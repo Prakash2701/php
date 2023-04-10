@@ -122,11 +122,11 @@
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "signup";
+        $dbname = "clash_of _lans_toutnaments";
        
         $con =  mysqli_connect($servername,$username,$password,$dbname);
         if ($con->connect_error) {
-           die("Connection failed: " . $con->connect_error);
+           die("Connection failed:".$con->connect_error);
          } else {
          
          }
@@ -183,7 +183,7 @@
                 <button type="submit" name="submit" class="btn btn-primary btn-lg">Login</button>
             </div>
         </form>
-        <div class="hint-text">Create account? <a href=".//test.php">SignUp here</a></div>
+        <div class="hint-text">Create account? <a href=".//signup.php">SignUp here</a></div>
     </div>
 </body>
 

@@ -125,7 +125,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "signup";
+        $dbname = "clash_of _lans_toutnaments";
        
         $con =  mysqli_connect($servername,$username,$password,$dbname);
         if ($con->connect_error) {
@@ -147,6 +147,9 @@
 
             $emailq = "SELECT * FROM signup WHERE email = '$email' ";
             $q = mysqli_query($con,$emailq);
+            $use = "SELECT * FROM signup WHERE username = '$name' ";
+            $query = mysqli_query($con,$use);
+            $query_ = mysqli_num_rows($query);
 
             $emailcount = mysqli_num_rows($q);
             if ($emailcount>0) {
@@ -156,10 +159,20 @@
     </script>
 
     <?php
+
+
                 
-            }else {
+            }else if($query_>0) {
+      
+                     ?>
+    <script>
+    alert("username already exists");
+    </script>
+
+    <?php
+            }else
                 if ($password === $confirm_password) {
-                   $insertq =" INSERT INTO signup( username, email, phone, `password`, confirm_password) VALUES ('$name','$email','$phone','$pass','$cpass')";
+                   $insertq =" INSERT INTO signup( username, email, phone, `password`,`confirm_password`) VALUES ('$name','$email','$phone','$pass','$cpass')";
                    $iq = mysqli_query($con,$insertq);
                    if ($iq) {
                     $email = $_POST['email'];
@@ -171,13 +184,12 @@
                             $email_pass = mysqli_fetch_assoc($q);
                            
                             $_SESSION['username'] = $email_pass['username'];
-                            $_SESSION['id'] = $email_pass['id'];
-                            
-                            if ($_SESSION['username']) {
-                                header('location:create_table.php'); 
-                            }
+                            header('location:Clash of Clans tournaments 1.php');
                         }
-                    }        
+                            
+                        
+                 }
+                            
                                 
             }else {
                     ?>
@@ -186,11 +198,12 @@
     </script>
 
     <?php
+            
                 }
             }
 
            
-         }
+         
     ?>
     <div class="signup-form">
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -224,7 +237,7 @@
                 <button type="submit" name="submit" class="btn btn-primary btn-lg">Sign Up</button>
             </div>
         </form>
-        <div class="hint-text">Already have an account? <a href=".//test2.php">Login here</a></div>
+        <div class="hint-text">Already have an account? <a href=".//login.php">Login here</a></div>
     </div>
 </body>
 

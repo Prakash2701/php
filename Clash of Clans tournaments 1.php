@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset( $_SESSION['username'])) {
-    header('location:test2.php');
+    header('location:login.php');
 }
 ?>
 
@@ -177,15 +177,15 @@ if (!isset( $_SESSION['username'])) {
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page <span
                             class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Page 1-1</a></li>
                         <li><a href="#">Page 1-2</a></li>
-                        <li><a href="#"><?php echo $_SESSION['id'];?></a></li>
+                        <li><a href=".\\getdata_page4.php">Page4</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Page 2</a></li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
 

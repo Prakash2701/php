@@ -49,42 +49,39 @@ session_start();
                         <table align="center">
                             <tr>
                                 <td><label>Day :</label></td>
-                                <td><input type="number" name="day" class="input" required></td>
+                                <td><input type="number" name="day" class="input" required="required"></td>
                             </tr>
                             <tr>
                                 <td><label>Clan name or number :</label></td>
-                                <td><input type="text" name="clanname" class="input" required></td>
+                                <td><input type="text" name="clanname" class="input" required="required"></td>
                             </tr>
                             <tr>
                                 <td><label>player number or name :</label></td>
-                                <td><input type="text" name="playername" class="input" required></td>
+                                <td><input type="text" name="playername" class="input" required="required"></td>
                             </tr>
                             <tr>
                                 <td><label>Town Hall (Level) :</label></td>
-                                <td><input type="number" name="townhall" class="input" required></td>
+                                <td><input type="number" name="townhall" class="input" required="required"></td>
                             </tr>
                             <tr>
                                 <td><label>War stars :</label> </td>
-                                <td> <input type="number" name="warstar" class="input" required></td>
+                                <td> <input type="number" name="warstar" class="input" required="required"></td>
 
                             </tr>
                             <tr>
                                 <td><label>Attack percentage :</label></td>
-                                <td><input type="number" name="attack" class="input" required></td>
+                                <td><input type="number" name="attack" class="input" required="required"></td>
                             </tr>
                             <tr>
                                 <td><label>Attack time : </label></td>
-                                <td><input type="number" name="attacktime" class="input" required></td>
+                                <td><input type="number" name="attacktime" class="input" required="required"></td>
                             </tr>
-                            <tr>
-                                <td><label>Upload your profile img : </label></td>
-                                <td><input type="file" name="img" class="input"></td>
-                            </tr>
+
 
                             <tr>
 
 
-                                <td><a href=".\\getdata2.php">
+                                <td><a href=".\\getdata_page4.php">
                                         <button type="button" class="inputcss btn btn-secondary btn-sm">data</button>
                                     </a>
                                 </td>
@@ -104,20 +101,43 @@ session_start();
              $servername = "localhost";
              $username = "root";
              $password = "";
-             $dbname = "clanswar";
+             $dbname = "clash_of _lans_toutnaments";
             
-             $con = new mysqli($servername,$username,$password,$dbname);
+             $con =  mysqli_connect($servername,$username,$password,$dbname);
              if ($con->connect_error) {
                 die("Connection failed: " . $con->connect_error);
               } else {
+                echo "Connection";
               
               }
                
-              $user = $_SESSION['username'];
-              
+             $name =$_SESSION['username'];
+             $id ="SELECT * FROM signup WHERE username = '$name' ";
+             $q = mysqli_query($con,$id);
+             $Name_ = mysqli_fetch_assoc($q);
+             $Signup_id = $Name_['signup_id'];
+             echo $Signup_id;
+             $date1 = date("Y-m-d");
+             
               if(isset($_POST['page4'])){
-                $sql = "INSERT INTO `$user` (`id`, `day`, `clanname`, `playername`, `townhall`, `warstar`, `attack`, `attacktime`) VALUES (NULL, '$_POST[day]', '$_POST[clanname]', '$_POST[playername]', '$_POST[townhall]', '$_POST[warstar]', '$_POST[attack]', '$_POST[attacktime]') ";
-                 $r = mysqli_query($con, $sql);
+                $sql="INSERT INTO `user_records` (`id`, `user_id`, `day`, `clanname`, `playername`, `townhall`, `warstar`, `attack`, `attacktime`,`credit_by`) VALUES (NULL, '$Signup_id', '$_POST[day]', '$_POST[clanname]', '$_POST[playername]', '$_POST[townhall]', '$_POST[warstar]', '$_POST[attack]', '$_POST[attacktime]','$date1')"; 
+                
+                 $r = mysqli_query($con,$sql);
+                 if($r){
+                    ?>
+    <script>
+    alert("user_records successful insert");
+    </script>
+
+    <?php 
+                 }else{
+                    ?>
+    <script>
+    alert("user records not insert");
+    </script>
+
+    <?php 
+                 }
 
                  
               }

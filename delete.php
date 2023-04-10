@@ -6,7 +6,7 @@ session_start();
  $servername = "localhost";
  $username = "root";
  $password = "";
- $dbname = "clanswar";
+ $dbname = "clash_of _lans_toutnaments";
  
  $id = $_GET['id'];
  $user = $_SESSION['username'];

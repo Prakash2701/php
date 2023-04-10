@@ -234,7 +234,7 @@ session_start();
                               $servername = "localhost";
                               $username = "root";
                               $password = "";
-                              $dbname = "clanswar";
+                              $dbname = "clash_of _lans_toutnaments";
                           
                               // Create connection
                               $conn = new mysqli($servername, $username, $password, $dbname);

@@ -86,7 +86,7 @@ session_start();
                                         $servername = "localhost";
                                         $username = "root";
                                         $password = "";
-                                        $dbname = "clanswar";
+                                        $dbname = "clash_of _lans_toutnaments";
 
                                         
                                         
@@ -104,18 +104,23 @@ session_start();
                                         
                                         $id = $_GET['id'];
                                         $user = $_SESSION['username'];
+                                        $date2 = date("Y-m-d ");
+                                        
 
-                                        $sql = "SELECT * FROM   $user  where id=$id";
+                                        $sql = "SELECT * FROM  user_records   where id=$id";
                                 
-                                        $q = mysqli_query($con,$sql);
-
-                                        $r = mysqli_fetch_assoc($q);
+                                        $sql_ = mysqli_query($con,$sql);
+                                        $r = mysqli_fetch_assoc($sql_);
+                
                                         if (isset($_POST['page4'])) {
-                                        $up =" UPDATE `$user` SET `day`='$_POST[day]',`clanname`='$_POST[clanname]',`playername`='$_POST[playername]',`townhall`='$_POST[townhall]',`warstar`='$_POST[warstar]',`attack`='$_POST[attack]',`attacktime`='$_POST[attacktime]' WHERE id =$id";
+                                        $up =" UPDATE `user_records` SET `day`='$_POST[day]',`clanname`='$_POST[clanname]',`playername`='$_POST[playername]',`townhall`='$_POST[townhall]',`warstar`='$_POST[warstar]',`attack`='$_POST[attack]',`attacktime`='$_POST[attacktime]' WHERE id =$id";
                                         
                                         $q = mysqli_query($con,$up);
-                                        header('location:page4.php');
-                                        
+                                           if($q){
+                                            $sql="UPDATE `user_records` SET `updete_by` = '$date2' WHERE id =$id";
+                                            $r = mysqli_query($con,$sql);
+                                            header('location:page4.php');
+                                        }
                                         }
 
                                         $con->close();      
