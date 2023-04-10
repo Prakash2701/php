@@ -173,7 +173,7 @@ if (!isset( $_SESSION['username'])) {
     <nav class="navbar navbar-inverse fex">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#"><?php echo $_SESSION['username'];?></a>
+                <a class="navbar-brand" href="#"><?php echo $_SESSION['username']; ?></a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
@@ -182,7 +182,7 @@ if (!isset( $_SESSION['username'])) {
                     <ul class="dropdown-menu">
                         <li><a href="#">Page 1-1</a></li>
                         <li><a href="#">Page 1-2</a></li>
-                        <li><a href="#">Page 1-3</a></li>
+                        <li><a href="#"><?php echo $_SESSION['id'];?></a></li>
                     </ul>
                 </li>
                 <li><a href="#">Page 2</a></li>

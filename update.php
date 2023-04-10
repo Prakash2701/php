@@ -12,9 +12,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href=".//inputform.css">
     <title>Clan War</title>
-    <h1 style="text-align:center">Clans War</h1>
+
     <style>
     .input {
         width: 90%;
@@ -74,88 +74,105 @@ session_start();
 </head>
 
 <body style="background-color:rgb(228, 221, 221) ;">
-    <div class="div1">
-        <form method="post" enctype="multipart/form-data">
-            <?php
-             $servername = "localhost";
-             $username = "root";
-             $password = "";
-             $dbname = "clanswar";
+    <div class="background">
+        <h2>Clans War</h2>
+        <div class="container">
 
-             
-              
-             $con = mysqli_connect($servername,$username,$password,$dbname);
-             if ($con->connect_error) {
-                die("Connection failed: " . $con->connect_error);
-              } else {
-                ?>
-            <script>
-            alert("connected");
-            </script>
-            <?php   
-              }
-               
-             
-              $id = $_GET['id'];
-              $user = $_SESSION['username'];
+            <div class="panel pricing-table">
 
-              $sql = "SELECT * FROM   $user  where id=$id";
-    
-              $q = mysqli_query($con,$sql);
+                <div class="container">
+                    <form method="post" enctype="multipart/form-data">
+                        <?php
+                                        $servername = "localhost";
+                                        $username = "root";
+                                        $password = "";
+                                        $dbname = "clanswar";
 
-              $r = mysqli_fetch_assoc($q);
-              if (isset($_POST['page4'])) {
-               $up =" UPDATE `$user` SET `day`='$_POST[day]',`clanname`='$_POST[clanname]',`playername`='$_POST[playername]',`townhall`='$_POST[townhall]',`warstar`='$_POST[warstar]',`attack`='$_POST[attack]',`attacktime`='$_POST[attacktime]' WHERE id =$id";
-              
-               $q = mysqli_query($con,$up);
-               header('location:page4.php');
-            
-            }
+                                        
+                                        
+                                        $con = mysqli_connect($servername,$username,$password,$dbname);
+                                        if ($con->connect_error) {
+                                            die("Connection failed: " . $con->connect_error);
+                                        } else {
+                                            ?>
+                        <script>
+                        alert("connected");
+                        </script>
+                        <?php   
+                                        }
+                                        
+                                        
+                                        $id = $_GET['id'];
+                                        $user = $_SESSION['username'];
 
-            $con->close();      
-              
-    ?>
-            <table align="center">
-                <tr>
-                    <td><label>Day :</label></td>
-                    <td><input type="number" class="input" name="day" value="<?php echo $r['day'];?>"></td>
-                </tr>
-                <tr>
-                    <td><label>Clan name or number :</label></td>
-                    <td><input type="text" class="input" name="clanname" value="<?php echo $r['clanname'];?>"></td>
-                </tr>
-                <tr>
-                    <td><label>player number or name :</label></td>
-                    <td><input type="text" class="input" name="playername" value="<?php echo $r['playername'];?>"></td>
-                </tr>
-                <tr>
-                    <td><label>Town Hall (Level) :</label></td>
-                    <td><input type="number" class="input" name="townhall" value="<?php echo $r['townhall'];?>"></td>
-                </tr>
-                <tr>
-                    <td><label>War stars :</label> </td>
-                    <td> <input type="number" class="input" name="warstar" value="<?php echo $r['warstar'];?>"></td>
+                                        $sql = "SELECT * FROM   $user  where id=$id";
+                                
+                                        $q = mysqli_query($con,$sql);
 
-                </tr>
-                <tr>
-                    <td><label>Attack percentage :</label></td>
-                    <td><input type="number" class="input" name="attack" value="<?php echo $r['attack'];?>"></td>
-                </tr>
-                <tr>
-                    <td><label>Attack time : </label></td>
-                    <td><input type="number" class="input" name="attacktime" value="<?php echo $r['attacktime'];?>">
-                    </td>
-                </tr>
-                <tr>
+                                        $r = mysqli_fetch_assoc($q);
+                                        if (isset($_POST['page4'])) {
+                                        $up =" UPDATE `$user` SET `day`='$_POST[day]',`clanname`='$_POST[clanname]',`playername`='$_POST[playername]',`townhall`='$_POST[townhall]',`warstar`='$_POST[warstar]',`attack`='$_POST[attack]',`attacktime`='$_POST[attacktime]' WHERE id =$id";
+                                        
+                                        $q = mysqli_query($con,$up);
+                                        header('location:page4.php');
+                                        
+                                        }
+
+                                        $con->close();      
+                                        
+                                ?>
+
+                        <table align="center">
+                            <tr>
+                                <td><label>Day :</label></td>
+                                <td><input type="number" class="input" name="day" value="<?php echo $r['day'];?>"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Clan name or number :</label></td>
+                                <td><input type="text" class="input" name="clanname"
+                                        value="<?php echo $r['clanname'];?>"></td>
+                            </tr>
+                            <tr>
+                                <td><label>player number or name :</label></td>
+                                <td><input type="text" class="input" name="playername"
+                                        value="<?php echo $r['playername'];?>"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Town Hall (Level) :</label></td>
+                                <td><input type="number" class="input" name="townhall"
+                                        value="<?php echo $r['townhall'];?>"></td>
+                            </tr>
+                            <tr>
+                                <td><label>War stars :</label> </td>
+                                <td> <input type="number" class="input" name="warstar"
+                                        value="<?php echo $r['warstar'];?>"></td>
+
+                            </tr>
+                            <tr>
+                                <td><label>Attack percentage :</label></td>
+                                <td><input type="number" class="input" name="attack" value="<?php echo $r['attack'];?>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Attack time : </label></td>
+                                <td><input type="number" class="input" name="attacktime"
+                                        value="<?php echo $r['attacktime'];?>">
+                                </td>
+                            </tr>
+                            <tr>
 
 
-                    <td>
-                    </td>
-                    <td><input type="submit" class="inputcss btn btn-primary btn-sm" name="page4" value="Update"></td>
+                                <td>
+                                </td>
+                                <td><input type="submit" class="inputcss btn btn-primary btn-sm" name="page4"
+                                        value="Update"></td>
 
-                </tr>
-            </table>
-        </form>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 

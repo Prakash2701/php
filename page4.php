@@ -77,6 +77,11 @@ session_start();
                                 <td><input type="number" name="attacktime" class="input" required></td>
                             </tr>
                             <tr>
+                                <td><label>Upload your profile img : </label></td>
+                                <td><input type="file" name="img" class="input"></td>
+                            </tr>
+
+                            <tr>
 
 
                                 <td><a href=".\\getdata2.php">

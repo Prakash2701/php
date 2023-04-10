@@ -74,6 +74,7 @@ session_start();
         padding: 50px 0 0;
         max-width: 960px;
         width: 100%;
+        flex-wrap: wrap;
     }
 
     .panel {
@@ -224,7 +225,7 @@ session_start();
         <div class="container">
             <div class="panel pricing-table">
 
-                <div class="container-xxl">
+                <div class="container">
                     <h3>player records</h3>
 
                     <form>
@@ -242,7 +243,7 @@ session_start();
                                 die("Connection failed: " . $conn->connect_error);
                               }
                               $user = $_SESSION['username'];
-                              $sql = "SELECT * FROM   $user ";
+                              $sql = "SELECT * FROM   `$user` ";
                           
                               $result = $conn->query($sql);
                           

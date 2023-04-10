@@ -26,6 +26,8 @@
         box-shadow: none !important;
         border: none;
 
+        padding: 10px;
+
     }
 
     .form-control:focus {
@@ -40,7 +42,9 @@
     .signup-form {
         width: 390px;
         margin: 30px auto;
+
     }
+
 
     .signup-form form {
         color: #999;
@@ -167,6 +171,7 @@
                             $email_pass = mysqli_fetch_assoc($q);
                            
                             $_SESSION['username'] = $email_pass['username'];
+                            $_SESSION['id'] = $email_pass['id'];
                             
                             if ($_SESSION['username']) {
                                 header('location:create_table.php'); 
