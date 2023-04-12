@@ -56,20 +56,20 @@ session_start();
                             </tr>
                             <tr>
                                 <td><label>Town Hall (Level) :</label></td>
-                                <td><input type="number" class="input" id="th" name="townhall"></td>
+                                <td><input type="number" class="input" name="townhall"></td>
                             </tr>
                             <tr>
                                 <td><label>War stars :</label> </td>
-                                <td> <input type="number" class="input" id="ws" name="warstar"></td>
+                                <td> <input type="number" class="input" name="warstar"></td>
 
                             </tr>
                             <tr>
                                 <td><label>Attack percentage :</label></td>
-                                <td><input type="number" class="input" id="attack" name="attack"></td>
+                                <td><input type="number" class="input" name="attack"></td>
                             </tr>
                             <tr>
                                 <td><label>Attack time : </label></td>
-                                <td><input type="number" class="input" id="time" name="attacktime"></td>
+                                <td><input type="number" class="input" name="attacktime"></td>
                             </tr>
                             <tr>
 
@@ -79,9 +79,10 @@ session_start();
                                     </a>
                                 </td>
                                 <td>
-                                    <input type="submit" name="data" class="inputcss btn btn-primary btn-sm"
+                                    <input type="submit" name="page3" class="inputcss btn btn-primary btn-sm"
                                         value="submit">
                                 </td>
+
 
 
                             </tr>
@@ -98,26 +99,46 @@ session_start();
              $servername = "localhost";
              $username = "root";
              $password = "";
-             $dbname = "clanswar";
+             $dbname = "clash_of_clans_toutnaments";
             
-             $con = new mysqli($servername,$username,$password,$dbname);
+             $con =  mysqli_connect($servername,$username,$password,$dbname);
              if ($con->connect_error) {
                 die("Connection failed: " . $con->connect_error);
               } else {
-                ?>
-    <script>
-    alert("connected");
-    </script>
-    <?php
+    
               }
+              $name = $_SESSION['username'];
+              $id ="SELECT * FROM signup WHERE username = '$name' ";
+              $q = mysqli_query($con,$id);
+              $Name_ = mysqli_fetch_assoc($q);
+              $Signup_id = $Name_['signup_id'];
+              echo $Signup_id;
+              $bstk = date("Y-m-d");
+              
+
+            $now = new DateTime();
+              $NOWS =$now->format('Y-m-d ');    
+          echo "<br>";
+          echo $NOWS;
                
-              $user = $_SESSION['username'];
-              if(isset($_POST['data'])){
-                $sql = "INSERT INTO `$user` (`id`, `playername`, `townhall`, `warstar`, `attack`, `attacktime`) VALUES (NULL, '$_POST[playername]', '$_POST[townhall]', '$_POST[warstar]', '$_POST[attack]', '$_POST[attacktime]')";
-                 $r = mysqli_query($con, $sql);
-              }
-              $con->close();
-    ?>
+              
+              if(isset($_POST['page3'])){
+                
+                $sql= "INSERT INTO `small_user_record` (`id`, `signup_id`, `playername`, `warstar`, `attack`, `attack _time`, `date`) VALUES (NULL, '$Signup_id', '$_POST[playername]', '$_POST[townhall]', '$_POST[warstar]', '$_POST[attack]', '$_POST[attacktime]','$NOWS')";
+                $r = mysqli_query($con,$sql);
+                if($r){
+                                ?>
+
+    <script>
+    alert("user records  insert");
+    </script>
+
+    <?php 
+                            }
+                            $con->close();
+
+                        }
+                    ?>
 
 
 </body>

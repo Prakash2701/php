@@ -6,7 +6,7 @@ session_start();
  $servername = "localhost";
  $username = "root";
  $password = "";
- $dbname = "clash_of _lans_toutnaments";
+ $dbname = "clash_of_clans_toutnaments";
  
  $id = $_GET['id'];
  $user = $_SESSION['username'];
@@ -17,7 +17,7 @@ session_start();
    die("Connection failed: " . $conn->connect_error);
  }
 
- $sql = "DELETE FROM $user WHERE id =$id";
+ $sql = "DELETE FROM user_records WHERE id =$id";
  $q = mysqli_query($con,$sql);
    if ($q) {
   ?>
@@ -26,7 +26,7 @@ alert("deleted");
 </script>
 <?php   
 
-    header('location:getdata2.php');
+    header('location:getdata_page4.php');
  }
 
 

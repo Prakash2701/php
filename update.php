@@ -86,7 +86,7 @@ session_start();
                                         $servername = "localhost";
                                         $username = "root";
                                         $password = "";
-                                        $dbname = "clash_of _lans_toutnaments";
+                                        $dbname = "clash_of_clans_toutnaments";
 
                                         
                                         

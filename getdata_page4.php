@@ -14,6 +14,8 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <link rel="stylesheet" href=".//table.css">
+
 
     <title>getdata</title>
     <style>
@@ -217,7 +219,7 @@ session_start();
                               $servername = "localhost";
                               $username = "root";
                               $password = "";
-                              $dbname = "clash_of _lans_toutnaments";
+                              $dbname = "clash_of_clans_toutnaments";
                           
                               // Create connection
                               $conn = new mysqli($servername, $username, $password, $dbname);
@@ -239,11 +241,10 @@ session_start();
                           
                           
                               if ($result->num_rows > 0) {
-                                echo "<tbody><table class='table'><thead><tr><th scope='col'>Id</th><th scope='col'>Day</th><th scope='col'>clanname</th><th scope='col'>Playername</th><th scope='col'>Townhall</th><th scope='col'>warstar</th><th scope='col'>attack</th><th scope='col'>attacktime</th><th scope='col'>Operation</th></tr></sthead>";
+                                echo "<div class='table-wrapper'></div><tbody><table class='fl-table'><thead><tr><th scope='col'>Id</th><th scope='col'>Day</th><th scope='col'>clanname</th><th scope='col'>Playername</th><th scope='col'>Townhall</th><th scope='col'>warstar</th><th scope='col'>attack</th><th scope='col'>attacktime</th><th scope='col'>Operation</th></tr></sthead>";
                                 // output data of each row
                                 while ($row = $result->fetch_assoc()) {
-                                  echo "<tr><th scope='row'>$row[id]</th>
-                                  
+                                  echo "<td>$row[id]</td>                                  
                                   <td>  $row[day]</td>
                                   <td> $row[clanname] </td>
                                  <td> $row[playername]</td>
@@ -254,7 +255,7 @@ session_start();
                                  <td class='O' ><li><a href='.\\update.php?id=$row[id]'> <button type='button'class='Operation btn btn-outline-primary btn-sm'>update</button> </a></li><a href='.\\delete.php?id=$row[id]'> <button type='button'class='Operation btn btn-outline-primary btn-sm'>Delete</button> </a><li></td>
                                  </tr> ";
                                 }
-                                echo "</table></tbody>";
+                                echo "</table></tbody></div>";
                               } else {
                                 echo "0 results";
                               }

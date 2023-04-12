@@ -122,7 +122,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "clash_of _lans_toutnaments";
+        $dbname = "clash_of_clans_toutnaments";
        
         $con =  mysqli_connect($servername,$username,$password,$dbname);
         if ($con->connect_error) {
